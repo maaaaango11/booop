@@ -46,7 +46,7 @@ bool Rna::isComp(Rna compTo) {
     if (a != len) return 0;
     if (len%4 != 0){
         a = len-1;
-        if((b[a] ^ first[a]) != (0x3 << 2*(4 - (len%4)) ) ) return 0; //last not full check
+        if((b[a] ^ first[a]) != (0xFF << 2*(4 - (len%4)) ) ) return 0; //last not full check
     }
     for (int i = 0; i<a; i++){
         if(b[i] ^ first[i] != 0xFF) return 0; //all check
