@@ -31,11 +31,11 @@ Rna::Rna(Nucleotide a, int size) {
     }
     f = inp;
     divRem = size % 4;
-    first = new char[size](inp);
     if(divRem != 0){
+        first = new char[(size/4)+1](inp);
         f << 2*(4-(divRem));
-        first[size-1] = f;
-    }
+        first[size/4] = f;
+    } else first = new char[size/4](inp);
     len = size;
 }
 
