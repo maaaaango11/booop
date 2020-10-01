@@ -4,25 +4,50 @@
 enum Nucleotide{A, T, G, C};
 
 class Rna{
-    char* first;
-    int len;
+    private char* first;
+    private int len;
     Rna(Nucleotide a, int size);
-};
-//Rna::Rna(Nucleotide a, int size) {
-//    first = calloc(sizeof(char)*((int)(size/4))+1);
-//    len = size;
-//}
 
-int whaa(char str, int pos){
-    if((pos<4)&&(pos>=0)){
-        str = str >> 2*(3-pos);
-        return (str & 0x3);
+    char* getFirst(){
+        return this->first;
     }
-    return -1;
+    int getLen(){
+        return this->len;
+    }
+};
+Rna::Rna(Nucleotide a, int size) {
+    char inp;
+    char f;
+    int divRem;
+    switch(a){
+        case 0:
+            inp = 0x00;
+        case 1:
+            inp = 0x55;
+        case 2:
+            inp = 0xAA;
+        case 3:
+            inp = 0xFF;
+    }
+    f = inp;
+    divRem = size % 4;
+    first = new char[size](inp);
+    if(divRem != 0){
+        f << 2*(4-(divRem));
+        first[size-1] = f;
+    }
+    len = size;
 }
 
-int main() {
-    int a = whaa(0xFF,3);
-    std::cout << a << std::endl;
-    return 0;
-}
+//int whaa(char str, int pos){
+//    if((pos<4)&&(pos>=0)){
+//        str >> 2*(3-pos);
+//        return (str & 0x3);
+//    }
+//}
+//
+//int main() {
+//    int a = whaa(0xFF,3);
+//    std::cout << a << std::endl;
+//    return 0;
+//}
