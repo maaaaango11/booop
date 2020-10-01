@@ -1,8 +1,9 @@
 #include <string>
 #include <iostream>
 
-enum Nucleotide{A, T, G, C};
-
+enum Nucleotide{A, G, C, T};
+//00 -- 11 A--T
+//01 -- 10 G--C
 class Rna{
     private char* first;
     private int len;
@@ -14,6 +15,7 @@ class Rna{
     int getLen(){
         return this->len;
     }
+    bool isComp(Rna compTo);
 };
 Rna::Rna(Nucleotide a, int size) {
     char inp;
@@ -38,7 +40,19 @@ Rna::Rna(Nucleotide a, int size) {
     } else first = new char[size/4](inp);
     len = size;
 }
-
+bool Rna::isComp(Rna compTo) {
+    int a = compTo.getLen();
+    char* b = compTo.getFirst();
+    if (a != len) return 0;
+    if (len%4 != 0){
+        a = len-1;
+        if((b[a] ^ first[a]) != (0x3 << 2*(4 - (len%4)) ) ) return 0; //last not full check
+    }
+    for (int i = 0; i<a; i++){
+        if(b[i] ^ first[i] != 0xFF) return 0; //all check
+    }
+    return 1;
+}
 //int whaa(char str, int pos){
 //    if((pos<4)&&(pos>=0)){
 //        str >> 2*(3-pos);
