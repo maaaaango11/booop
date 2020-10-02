@@ -42,12 +42,16 @@ Rna::Rna(Nucl a, int size) {
     switch(a){
         case 0:
             inp = 0x00;
+            break;
         case 1:
             inp = 0x55;
+            break;
         case 2:
             inp = 0xAA;
+            break;
         case 3:
             inp = 0xFF;
+            break;
     }
     f = inp;
     divRem = size % sizeof(size_t);
@@ -68,7 +72,7 @@ bool Rna::isComp(Rna compTo) {
         if((b[a] ^ first[a]) != (0xFF << 2*(sizeof(size_t) - (len%sizeof(size_t))) ) ) return false; //last not full check
     }
     for (int i = 0; i<a; i++){
-        if(b[i] ^ first[i] != 0xFF) return false; //all check
+        if((b[i] ^ first[i]) != 0xFF) return false; //all check
     }
     return true;
 }
