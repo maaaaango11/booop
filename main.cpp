@@ -4,6 +4,15 @@
 enum Nucl{A, G, C, T};
 //00 -- 11 A--T
 //01 -- 10 G--C
+size_t createWord(int a){
+    if((a > 3)||(a<0)) return -1;
+    size_t word;
+    for(int i = 0; i < sizeof(size_t)/2; i++){ //+-1?
+        word = word | a;
+        word = word << 2;
+    }
+    return word;
+}
 class Rna{
 private:
     size_t* first;
@@ -17,7 +26,7 @@ public:
     int getLen(){
         return this->len;
     }
-    bool isComp(Rna compTo);
+    bool isComp(Rna* compTo);
 //    class Reference{
 //        size_t num;
 //        Rna& rna;
@@ -35,44 +44,32 @@ public:
 };
 
 Rna::Rna(Nucl a, int size) {
-    size_t inp = 0x00;
     size_t f;
+    size_t word = 0;
     int divRem;
     int divN;
-    switch(a){
-        case 0:
-            inp = 0x00;
-            break;
-        case 1:
-            inp = 0x55;
-            break;
-        case 2:
-            inp = 0xAA;
-            break;
-        case 3:
-            inp = 0xFF;
-            break;
-    }
-    f = inp;
+
+    word = createWord(a);
+    f = word;
     divRem = size % sizeof(size_t);
     divN = size / sizeof(size_t);
     if(divRem != 0){
-        first = new char[(divN)+1](inp);
+        first = new size_t[(divN)+1](word);
         f << 2*(sizeof(size_t) - (divRem)); //
         first[divN] = f;
-    } else first = new char[divN](inp);
+    } else first = new size_t[divN](word);
     len = size;
 }
-bool Rna::isComp(Rna compTo) {
-    int a = compTo.getLen();
-    size_t* b = compTo.getFirst();
+bool Rna::isComp(Rna* compTo) {
+    int a = compTo->getLen();
+    size_t* b = compTo->getFirst();
     if (a != len) return false;
     if (len%sizeof(size_t) != 0){
         a = len-1;
-        if((b[a] ^ first[a]) != (0xFF << 2*(sizeof(size_t) - (len%sizeof(size_t))) ) ) return false; //last not full check
+        if((b[a] ^ first[a]) != (createWord(3) << 2*(sizeof(size_t) - (len%sizeof(size_t))) ) ) return false; //last not full check
     }
     for (int i = 0; i<a; i++){
-        if((b[i] ^ first[i]) != 0xFF) return false; //all check
+        if((b[i] ^ first[i]) != createWord(3)) return false; //all check
     }
     return true;
 }
