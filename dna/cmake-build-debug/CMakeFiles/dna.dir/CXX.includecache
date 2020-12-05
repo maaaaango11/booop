@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/wrk/dna/main.cpp
+iostream
+-
+rna.h
+D:/wrk/dna/rna.h
+
+D:/wrk/dna/rna.h
+

@@ -1,0 +1,3 @@
+D:/wrk/dna/cmake-build-debug/CMakeFiles/dna.dir
+D:/wrk/dna/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/wrk/dna/cmake-build-debug/CMakeFiles/rebuild_cache.dir
