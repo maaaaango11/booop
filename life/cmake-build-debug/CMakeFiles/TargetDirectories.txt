@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 D:/wrk/life/cmake-build-debug/CMakeFiles/life.dir
 D:/wrk/life/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/wrk/life/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+=======
+D:/wrk/life/cmake-build-debug/CMakeFiles/life.dir
+D:/wrk/life/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/wrk/life/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+>>>>>>> 476c3f8679e3a053f7623a934196f91509dd2542
