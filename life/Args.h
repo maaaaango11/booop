@@ -7,7 +7,8 @@
 
 class Args{
 public:
-    int[2] numbers;
+    std::string command;
+    int numbers[2];
     std::string str;
 };
 

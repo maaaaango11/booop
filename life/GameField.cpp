@@ -5,9 +5,20 @@
 #include <iostream>
 #include <fstream>
 #include "Args.h"
+#include "Commando.h"
 #include "GameField.h"
 
-GameField::GameField(int x, int y) {
+std::ostream& operator<<(std::ostream &out, const GameField &gameField) {
+    for(int i = 0; i<gameField.len; i++){
+        for(int j = 0; j<gameField.height; j++){
+            out << (gameField.grid[i][j].getAlive() ? 1 : 0);
+        }
+        out<<"\n";
+    }
+    return out;
+}
+
+GameField::GameField(int x1, int y1) : Field(x1, y1) {
     int (GameField::*resetPrt)(Args*) = &GameField::reset;
     int (GameField::*setPrt)(Args*) = &GameField::set;
     int (GameField::*clearPrt)(Args*) = &GameField::clear;
@@ -15,19 +26,16 @@ GameField::GameField(int x, int y) {
     int (GameField::*backPrt)(Args*) = &GameField::back;
     int (GameField::*savePrt)(Args*) = &GameField::save;
     int (GameField::*loadPrt)(Args*) = &GameField::load;
-    commands.push_back(std::make_pair("reset",resetPrt));
-    commands.push_back(std::make_pair("set",setPrt));
-    commands.push_back(std::make_pair("clear",clearPrt));
-    commands.push_back(std::make_pair("step",stepPrt));
-    commands.push_back(std::make_pair("back",backPrt));
-    commands.push_back(std::make_pair("save",savePrt));
-    commands.push_back(std::make_pair("load",loadPrt));
+    commands.emplace_back(std::make_pair("reset",resetPrt));
+    commands.emplace_back(std::make_pair("set",setPrt));
+    commands.emplace_back(std::make_pair("clear",clearPrt));
+    commands.emplace_back(std::make_pair("step",stepPrt));
+    commands.emplace_back(std::make_pair("back",backPrt));
+    commands.emplace_back(std::make_pair("save",savePrt));
+    commands.emplace_back(std::make_pair("load",loadPrt));
+    prevGrid = nullptr;
 }
 
-char GameField::out(bool a){
-    if(a) return '*';
-    return '.';
-}
 int GameField::neighbourhood(int x, int y){
     int counter = 0;
     if(grid[(x + 1) % len][y].getAlive()) counter++;
@@ -58,11 +66,30 @@ void GameField::nextStep() {
         }
     }
     changeStatus(cellsList);
-
+    std::cout<<this; //
+    waitCommand();
 }
 
-int GameField::reset(Args* args){ //return?
+void GameField::waitCommand(){
+    Args* args = parser->getArgs();
+    if(args != nullptr){
+        for(auto const &element : commands){
+            if(args->command == element.first){
+                (*this.*element.second)(args);
+            }
+        }
+    }
+}
 
+
+int GameField::reset(Args* args){ //return?
+    turn = 0;
+    prevTurn = 0;
+    delete[](prevGrid);
+    prevGrid = nullptr;
+    delete[](grid);
+    grid = nullptr;
+    generate();
 }
 
 int GameField::set(Args* args){ //return?
@@ -80,13 +107,20 @@ int GameField::step(Args* args){ //return?
 }
 
 int GameField::back(Args* args){ //return?
-
+    int ti = turn;
+    turn = prevTurn;
+    prevTurn = ti;
+    Cell** tg = grid;
+    grid = prevGrid;
+    prevGrid = tg;
 }
 
 int GameField::save(Args* args){
-    std::ofstream file;
-    file.open(args->str);
-    //in UI??
+    if(args->str != ""){
+        std::ofstream file;
+        file.open(args->str);
+        file<<this;
+    }
 }
 
 int GameField::load(Args* args){
@@ -95,3 +129,4 @@ int GameField::load(Args* args){
     //in UI??
     //add reconstruction
 }
+

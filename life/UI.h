@@ -4,12 +4,13 @@
 
 #ifndef LIFE_UI_H
 #define LIFE_UI_H
-#include "GameField.h"
 #include <iostream>
 
 class UI {
 public:
-    void draw(GameField* field);
+    void draw(const GameField& field, FILE* file);
+    void draw(const GameField& field);
+    Cell** fileRead(FILE* file);
 };
 
 

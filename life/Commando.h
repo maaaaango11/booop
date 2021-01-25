@@ -9,11 +9,10 @@
 class Commando {
 private:
     Args* args = new Args();
-    std::string command;
 public:
-    int getStr();
-    std::string sendCommand();
-    Args* sendArgs();
+    Args* readStrRetArgs();
+    Args* getArgs();
+    ~Commando();
 };
 
 

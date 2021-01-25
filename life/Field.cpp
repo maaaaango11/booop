@@ -3,13 +3,18 @@
 //
 #include "Field.h"
 
+void Field::generate(){
+    if((len == 0) || (height == 0)) grid = nullptr;
+    grid = new Cell*[len];
+    for(int i = 0; i<len; i++){
+        grid[i] = new Cell[height];
+    }
+}
+
 Field::Field(int x, int y){
     len = x;
     height = y;
-    grid = new Cell*[x];
-    for(int i = 0; i<x; i++){
-        grid[i] = new Cell[y];
-    }
+    generate();
 }
 
 int Field::getLen(){

@@ -5,11 +5,11 @@
 #include "Args.h"
 #include "Commando.h"
 
-int Commando::getStr() {
+Args* Commando::readStrRetArgs() {
     std::string commandRaw;
     std::cin >> commandRaw;
     if(commandRaw.length() != 0){
-        command = commandRaw.erase((commandRaw.find(' '), commandRaw.length()));
+        args->command = commandRaw.erase((commandRaw.find(' '), commandRaw.length()));
         commandRaw = commandRaw.erase(0, commandRaw.find(' '));
         std::string paramsFirst = commandRaw.erase((commandRaw.find(' '), commandRaw.length()));
         commandRaw = commandRaw.erase(0, commandRaw.find(' '));
@@ -17,15 +17,15 @@ int Commando::getStr() {
         if (commandRaw.length() != 0){ //catch exceptions
             args->numbers[1] = std::stoi(commandRaw);
         } else args->str = paramsFirst;
+        return args;
     }
+    return nullptr;
 }
 
-std::string Commando::sendCommand(){
-    std::string out = command;
-    command.clear();
-    return out;
 
+Args* Commando::getArgs(){
+    return readStrRetArgs();
 }
-Args* Commando::sendArgs(){
-    return args;
+Commando::~Commando(){
+    delete(args);
 }
