@@ -3,7 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/life.dir/Commando.cpp.obj"
   "CMakeFiles/life.dir/Field.cpp.obj"
   "CMakeFiles/life.dir/GameField.cpp.obj"
-  "CMakeFiles/life.dir/UI.cpp.obj"
   "CMakeFiles/life.dir/main.cpp.obj"
   "liblife.dll.a"
   "life.exe"

@@ -1,17 +1,12 @@
 //
 // Created by МаксиМ on 20.11.2020.
 //
-#include <vector>
-#include <iostream>
-#include <fstream>
-#include "Args.h"
-#include "Commando.h"
 #include "GameField.h"
 
 std::ostream& operator<<(std::ostream &out, const GameField &gameField) {
     for(int i = 0; i<gameField.len; i++){
         for(int j = 0; j<gameField.height; j++){
-            out << (gameField.grid[i][j].getAlive() ? 1 : 0);
+            out << (gameField.grid[i][j].getAlive() ? "1" : "0");
         }
         out<<"\n";
     }
@@ -41,11 +36,11 @@ int GameField::neighbourhood(int x, int y){
     if(grid[(x + 1) % len][y].getAlive()) counter++;
     if(grid[x][(y + 1) % height].getAlive()) counter++;
     if(grid[(x + 1) % len][(y + 1) % height].getAlive()) counter++;
-    if(grid[(x - 1) % len][y].getAlive()) counter++;
-    if(grid[x][(y - 1) % height].getAlive()) counter++;
-    if(grid[(x - 1) % len][(y - 1) % height].getAlive()) counter++;
-    if(grid[(x + 1) % len][(y - 1) % height].getAlive()) counter++;
-    if(grid[(x - 1) % len][(y + 1) % height].getAlive()) counter++;
+    if(grid[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][y].getAlive()) counter++;
+    if(grid[x][((y - 1) % height)<0 ? height+((y - 1) % height) : ((y - 1) % height)].getAlive()) counter++;
+    if(grid[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][(y - 1) % height].getAlive()) counter++;
+    if(grid[(x + 1) % len][((y - 1) % height)<0 ? height+((y - 1) % height) : ((y - 1) % height)].getAlive()) counter++;
+    if(grid[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][(y + 1) % height].getAlive()) counter++;
     return counter;
 }
 
@@ -59,14 +54,14 @@ void GameField::nextStep() {
     turn++;
     std::vector<Cell*> cellsList;
     for(int i = 0;i<len;i++){
-        for(int j = 0;i<height;j++){
+        for(int j = 0;j<height;j++){
             int n = neighbourhood(i,j);
             if(((n<2)||(n>3))&&(grid[i][j].getAlive())){cellsList.push_back(&grid[i][j]);} //из-за передачи ссылок
             if((n == 3)&&(!grid[i][j].getAlive())){cellsList.push_back(&grid[i][j]);} //
         }
     }
     changeStatus(cellsList);
-    std::cout<<this; //
+    std::cout<<this<<std::endl; //
     waitCommand();
 }
 

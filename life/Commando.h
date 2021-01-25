@@ -1,7 +1,8 @@
 //
 // Created by МаксиМ on 19.11.2020.
 //
-
+#include <iostream>
+#include "Args.h"
 #ifndef LIFE_COMMANDO_H
 #define LIFE_COMMANDO_H
 

@@ -2,6 +2,11 @@
 // Created by МаксиМ on 20.11.2020.
 //
 #include "Field.h"
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include "Args.h"
+#include "Commando.h"
 #ifndef LIFE_GAMEFIELD_H
 #define LIFE_GAMEFIELD_H
 

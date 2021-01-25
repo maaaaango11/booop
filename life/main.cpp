@@ -1,6 +1,6 @@
 #include "GameField.h"
 #include "Commando.h"
-#include "UI.h"
+//#include "UI.h"
 int main() {
     auto* parser = new Commando();
     auto* field = new GameField(10, 10);

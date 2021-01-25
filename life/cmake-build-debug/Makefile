@@ -230,33 +230,6 @@ GameField.cpp.s:
 	$(MAKE) -f CMakeFiles\life.dir\build.make CMakeFiles/life.dir/GameField.cpp.s
 .PHONY : GameField.cpp.s
 
-UI.obj: UI.cpp.obj
-
-.PHONY : UI.obj
-
-# target to build an object file
-UI.cpp.obj:
-	$(MAKE) -f CMakeFiles\life.dir\build.make CMakeFiles/life.dir/UI.cpp.obj
-.PHONY : UI.cpp.obj
-
-UI.i: UI.cpp.i
-
-.PHONY : UI.i
-
-# target to preprocess a source file
-UI.cpp.i:
-	$(MAKE) -f CMakeFiles\life.dir\build.make CMakeFiles/life.dir/UI.cpp.i
-.PHONY : UI.cpp.i
-
-UI.s: UI.cpp.s
-
-.PHONY : UI.s
-
-# target to generate assembly for a file
-UI.cpp.s:
-	$(MAKE) -f CMakeFiles\life.dir\build.make CMakeFiles/life.dir/UI.cpp.s
-.PHONY : UI.cpp.s
-
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -305,9 +278,6 @@ help:
 	@echo ... GameField.obj
 	@echo ... GameField.i
 	@echo ... GameField.s
-	@echo ... UI.obj
-	@echo ... UI.i
-	@echo ... UI.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

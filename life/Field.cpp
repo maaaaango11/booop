@@ -9,6 +9,11 @@ void Field::generate(){
     for(int i = 0; i<len; i++){
         grid[i] = new Cell[height];
     }
+    for(int a = 0; a<len; a++){
+        for(int b = 0; b<height; b++){
+            grid[a][b].setAlive(false);
+        }
+    }
 }
 
 Field::Field(int x, int y){

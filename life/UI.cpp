@@ -1,7 +1,7 @@
 //
 // Created by МаксиМ on 19.11.2020.
 //
-#include "GameField.h"
+//#include "GameField.h"
 #include "UI.h"
 
 
@@ -18,7 +18,7 @@ void UI::draw(const GameField& field){
     //std::cout << field;
 }
 void UI::draw(const GameField& field, FILE* file){
-    reinterpret_cast<int &>(file) << field;
+    //reinterpret_cast<int &>(file) << field;
 }
 Cell** UI::fileRead(FILE *file) {
     Cell** grid;

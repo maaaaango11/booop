@@ -1,8 +1,8 @@
 //
 // Created by МаксиМ on 19.11.2020.
 //
-#include <iostream>
-#include "Args.h"
+//#include <iostream>
+//#include "Args.h"
 #include "Commando.h"
 
 Args* Commando::readStrRetArgs() {
@@ -11,13 +11,15 @@ Args* Commando::readStrRetArgs() {
     if(commandRaw.length() != 0){
         args->command = commandRaw.erase((commandRaw.find(' '), commandRaw.length()));
         commandRaw = commandRaw.erase(0, commandRaw.find(' '));
-        std::string paramsFirst = commandRaw.erase((commandRaw.find(' '), commandRaw.length()));
-        commandRaw = commandRaw.erase(0, commandRaw.find(' '));
-        args->numbers[0] = std::stoi(paramsFirst); //what if not int?
-        if (commandRaw.length() != 0){ //catch exceptions
-            args->numbers[1] = std::stoi(commandRaw);
-        } else args->str = paramsFirst;
-        return args;
+        if(commandRaw.length() != 0){
+            std::string paramsFirst = commandRaw.erase((commandRaw.find(' '), commandRaw.length()));
+            commandRaw = commandRaw.erase(0, commandRaw.find(' '));
+            args->numbers[0] = std::stoi(paramsFirst); //what if not int?
+            if (commandRaw.length() != 0){ //catch exceptions
+                args->numbers[1] = std::stoi(commandRaw);
+            } else args->str = paramsFirst;
+            return args;
+        }
     }
     return nullptr;
 }

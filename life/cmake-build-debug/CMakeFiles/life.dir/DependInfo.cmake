@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/wrk/booop/life/Commando.cpp" "D:/wrk/booop/life/cmake-build-debug/CMakeFiles/life.dir/Commando.cpp.obj"
   "D:/wrk/booop/life/Field.cpp" "D:/wrk/booop/life/cmake-build-debug/CMakeFiles/life.dir/Field.cpp.obj"
   "D:/wrk/booop/life/GameField.cpp" "D:/wrk/booop/life/cmake-build-debug/CMakeFiles/life.dir/GameField.cpp.obj"
-  "D:/wrk/booop/life/UI.cpp" "D:/wrk/booop/life/cmake-build-debug/CMakeFiles/life.dir/UI.cpp.obj"
   "D:/wrk/booop/life/main.cpp" "D:/wrk/booop/life/cmake-build-debug/CMakeFiles/life.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

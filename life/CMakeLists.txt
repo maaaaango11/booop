@@ -3,5 +3,5 @@ project(life)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(life main.cpp Cell.h Cell.cpp Field.cpp Field.h Commando.cpp Commando.h UI.cpp UI.h GameField.cpp GameField.h Args.h)
+add_executable(life main.cpp Cell.h Cell.cpp Field.h Field.cpp Commando.h Commando.cpp GameField.h GameField.cpp Args.h)
 

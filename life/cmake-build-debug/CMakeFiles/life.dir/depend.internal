@@ -19,16 +19,10 @@ CMakeFiles/life.dir/GameField.cpp.obj
  D:/wrk/booop/life/Field.h
  D:/wrk/booop/life/GameField.cpp
  D:/wrk/booop/life/GameField.h
-CMakeFiles/life.dir/UI.cpp.obj
- D:/wrk/booop/life/Cell.h
- D:/wrk/booop/life/Field.h
- D:/wrk/booop/life/GameField.h
- D:/wrk/booop/life/UI.cpp
- D:/wrk/booop/life/UI.h
 CMakeFiles/life.dir/main.cpp.obj
+ D:/wrk/booop/life/Args.h
  D:/wrk/booop/life/Cell.h
  D:/wrk/booop/life/Commando.h
  D:/wrk/booop/life/Field.h
  D:/wrk/booop/life/GameField.h
- D:/wrk/booop/life/UI.h
  D:/wrk/booop/life/main.cpp
