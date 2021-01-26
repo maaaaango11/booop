@@ -9,13 +9,14 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/wrk/booop/spaceProg/Bomber.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/Bomber.cpp.obj"
   "D:/wrk/booop/spaceProg/Collector.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/Collector.cpp.obj"
   "D:/wrk/booop/spaceProg/Engine.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/Engine.cpp.obj"
-  "D:/wrk/booop/spaceProg/ICommand.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/ICommand.cpp.obj"
+  "D:/wrk/booop/spaceProg/IComm.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/IComm.cpp.obj"
   "D:/wrk/booop/spaceProg/IMode.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/IMode.cpp.obj"
   "D:/wrk/booop/spaceProg/IRobot.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/IRobot.cpp.obj"
   "D:/wrk/booop/spaceProg/Manual.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/Manual.cpp.obj"
   "D:/wrk/booop/spaceProg/ManualCommand.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/ManualCommand.cpp.obj"
   "D:/wrk/booop/spaceProg/Map.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/Map.cpp.obj"
   "D:/wrk/booop/spaceProg/Parser.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/Parser.cpp.obj"
+  "D:/wrk/booop/spaceProg/UI.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/UI.cpp.obj"
   "D:/wrk/booop/spaceProg/main.cpp" "D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -9,7 +9,8 @@
 class IMode {
 public:
     virtual void nextMove() = 0;
-    virtual ~IMode();
+    virtual void passXY(int x, int y) = 0;
+    virtual ~IMode(){};
 };
 
 

@@ -257,32 +257,32 @@ Engine.cpp.s:
 	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/Engine.cpp.s
 .PHONY : Engine.cpp.s
 
-ICommand.obj: ICommand.cpp.obj
+IComm.obj: IComm.cpp.obj
 
-.PHONY : ICommand.obj
+.PHONY : IComm.obj
 
 # target to build an object file
-ICommand.cpp.obj:
-	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/ICommand.cpp.obj
-.PHONY : ICommand.cpp.obj
+IComm.cpp.obj:
+	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/IComm.cpp.obj
+.PHONY : IComm.cpp.obj
 
-ICommand.i: ICommand.cpp.i
+IComm.i: IComm.cpp.i
 
-.PHONY : ICommand.i
+.PHONY : IComm.i
 
 # target to preprocess a source file
-ICommand.cpp.i:
-	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/ICommand.cpp.i
-.PHONY : ICommand.cpp.i
+IComm.cpp.i:
+	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/IComm.cpp.i
+.PHONY : IComm.cpp.i
 
-ICommand.s: ICommand.cpp.s
+IComm.s: IComm.cpp.s
 
-.PHONY : ICommand.s
+.PHONY : IComm.s
 
 # target to generate assembly for a file
-ICommand.cpp.s:
-	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/ICommand.cpp.s
-.PHONY : ICommand.cpp.s
+IComm.cpp.s:
+	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/IComm.cpp.s
+.PHONY : IComm.cpp.s
 
 IMode.obj: IMode.cpp.obj
 
@@ -446,6 +446,33 @@ Parser.cpp.s:
 	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/Parser.cpp.s
 .PHONY : Parser.cpp.s
 
+UI.obj: UI.cpp.obj
+
+.PHONY : UI.obj
+
+# target to build an object file
+UI.cpp.obj:
+	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/UI.cpp.obj
+.PHONY : UI.cpp.obj
+
+UI.i: UI.cpp.i
+
+.PHONY : UI.i
+
+# target to preprocess a source file
+UI.cpp.i:
+	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/UI.cpp.i
+.PHONY : UI.cpp.i
+
+UI.s: UI.cpp.s
+
+.PHONY : UI.s
+
+# target to generate assembly for a file
+UI.cpp.s:
+	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/UI.cpp.s
+.PHONY : UI.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -497,9 +524,9 @@ help:
 	@echo ... Engine.obj
 	@echo ... Engine.i
 	@echo ... Engine.s
-	@echo ... ICommand.obj
-	@echo ... ICommand.i
-	@echo ... ICommand.s
+	@echo ... IComm.obj
+	@echo ... IComm.i
+	@echo ... IComm.s
 	@echo ... IMode.obj
 	@echo ... IMode.i
 	@echo ... IMode.s
@@ -518,6 +545,9 @@ help:
 	@echo ... Parser.obj
 	@echo ... Parser.i
 	@echo ... Parser.s
+	@echo ... UI.obj
+	@echo ... UI.i
+	@echo ... UI.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -1,29 +1,38 @@
 
-#include "Map.h"
-#include "IRobot.h"
-#include "IMode.h"
-#include <vector>
-#include <iostream>
 #ifndef SPACEPROG_ENGINE_H
 #define SPACEPROG_ENGINE_H
-
+#include "Map.h"
+#include "Manual.h"
+#include "AutoScan.h"
+#include "AutoGrab.h"
+#include "IRobot.h"
+#include "IMode.h"
+#include "UI.h"
+#include "Parser.h"
+#include <vector>
+#include <iostream>
 
 class Engine {
 Map* map;
 IRobot* robot;
+IRobot* bomber;
 int spawnX;
 int spawnY;
-//Parser parser;
+UI* ui = new UI();
+bool bomberMode = false;
+bool change = false;
+std::string next;
 std::vector<std::pair<std::string, IMode*>> modeList;
 IMode* current;
 public:
-    Engine(IRobot &r, IMode &manual, IMode &scan, IMode &autoGrab);
+    Engine(IRobot &r, IRobot &b);
     void spawn(IRobot* r);
     void run(); //cycle
     void changeMode(std::string mode);
-    void move(int x, int y);
-    void scan();
-    void grab();
+//    int move(int x, int y, IRobot &r);
+//    int scan(IRobot &r);
+//    int grab(IRobot &r);
+    void bomberSwitch();
 };
 
 

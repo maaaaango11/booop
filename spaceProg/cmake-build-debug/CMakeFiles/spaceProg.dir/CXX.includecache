@@ -6,21 +6,27 @@
 
 #IncludeRegexTransform: 
 
-D:/wrk/booop/spaceProg/AutoGrab.cpp
-AutoGrab.h
-D:/wrk/booop/spaceProg/AutoGrab.h
+D:/wrk/booop/spaceProg/Collector.cpp
+Collector.h
+D:/wrk/booop/spaceProg/Collector.h
 
-D:/wrk/booop/spaceProg/AutoGrab.h
-IMode.h
-D:/wrk/booop/spaceProg/IMode.h
+D:/wrk/booop/spaceProg/Collector.h
+IRobot.h
+D:/wrk/booop/spaceProg/IRobot.h
 
-D:/wrk/booop/spaceProg/AutoScan.cpp
-AutoScan.h
-D:/wrk/booop/spaceProg/AutoScan.h
+D:/wrk/booop/spaceProg/Coords.h
 
-D:/wrk/booop/spaceProg/AutoScan.h
-IMode.h
-D:/wrk/booop/spaceProg/IMode.h
+D:/wrk/booop/spaceProg/IRobot.h
+Map.h
+D:/wrk/booop/spaceProg/Map.h
 
-D:/wrk/booop/spaceProg/IMode.h
+D:/wrk/booop/spaceProg/Map.h
+vector
+-
+iostream
+-
+time.h
+-
+Coords.h
+D:/wrk/booop/spaceProg/Coords.h
 

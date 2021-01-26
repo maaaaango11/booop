@@ -107,16 +107,19 @@
 		<Unit filename="D:/wrk/booop/spaceProg/Collector.h">
 			<Option target="spaceProg"/>
 		</Unit>
+		<Unit filename="D:/wrk/booop/spaceProg/Coords.h">
+			<Option target="spaceProg"/>
+		</Unit>
 		<Unit filename="D:/wrk/booop/spaceProg/Engine.cpp">
 			<Option target="spaceProg"/>
 		</Unit>
 		<Unit filename="D:/wrk/booop/spaceProg/Engine.h">
 			<Option target="spaceProg"/>
 		</Unit>
-		<Unit filename="D:/wrk/booop/spaceProg/ICommand.cpp">
+		<Unit filename="D:/wrk/booop/spaceProg/IComm.cpp">
 			<Option target="spaceProg"/>
 		</Unit>
-		<Unit filename="D:/wrk/booop/spaceProg/ICommand.h">
+		<Unit filename="D:/wrk/booop/spaceProg/IComm.h">
 			<Option target="spaceProg"/>
 		</Unit>
 		<Unit filename="D:/wrk/booop/spaceProg/IMode.cpp">
@@ -153,6 +156,12 @@
 			<Option target="spaceProg"/>
 		</Unit>
 		<Unit filename="D:/wrk/booop/spaceProg/Parser.h">
+			<Option target="spaceProg"/>
+		</Unit>
+		<Unit filename="D:/wrk/booop/spaceProg/UI.cpp">
+			<Option target="spaceProg"/>
+		</Unit>
+		<Unit filename="D:/wrk/booop/spaceProg/UI.h">
 			<Option target="spaceProg"/>
 		</Unit>
 		<Unit filename="D:/wrk/booop/spaceProg/main.cpp">

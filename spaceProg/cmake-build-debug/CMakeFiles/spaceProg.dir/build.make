@@ -147,18 +147,18 @@ CMakeFiles/spaceProg.dir/Bomber.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spaceProg.dir/Bomber.cpp.s"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\wrk\booop\spaceProg\Bomber.cpp -o CMakeFiles\spaceProg.dir\Bomber.cpp.s
 
-CMakeFiles/spaceProg.dir/ICommand.cpp.obj: CMakeFiles/spaceProg.dir/flags.make
-CMakeFiles/spaceProg.dir/ICommand.cpp.obj: ../ICommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/spaceProg.dir/ICommand.cpp.obj"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spaceProg.dir\ICommand.cpp.obj -c D:\wrk\booop\spaceProg\ICommand.cpp
+CMakeFiles/spaceProg.dir/IComm.cpp.obj: CMakeFiles/spaceProg.dir/flags.make
+CMakeFiles/spaceProg.dir/IComm.cpp.obj: ../IComm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/spaceProg.dir/IComm.cpp.obj"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spaceProg.dir\IComm.cpp.obj -c D:\wrk\booop\spaceProg\IComm.cpp
 
-CMakeFiles/spaceProg.dir/ICommand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spaceProg.dir/ICommand.cpp.i"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\wrk\booop\spaceProg\ICommand.cpp > CMakeFiles\spaceProg.dir\ICommand.cpp.i
+CMakeFiles/spaceProg.dir/IComm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spaceProg.dir/IComm.cpp.i"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\wrk\booop\spaceProg\IComm.cpp > CMakeFiles\spaceProg.dir\IComm.cpp.i
 
-CMakeFiles/spaceProg.dir/ICommand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spaceProg.dir/ICommand.cpp.s"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\wrk\booop\spaceProg\ICommand.cpp -o CMakeFiles\spaceProg.dir\ICommand.cpp.s
+CMakeFiles/spaceProg.dir/IComm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spaceProg.dir/IComm.cpp.s"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\wrk\booop\spaceProg\IComm.cpp -o CMakeFiles\spaceProg.dir\IComm.cpp.s
 
 CMakeFiles/spaceProg.dir/Manual.cpp.obj: CMakeFiles/spaceProg.dir/flags.make
 CMakeFiles/spaceProg.dir/Manual.cpp.obj: ../Manual.cpp
@@ -225,6 +225,19 @@ CMakeFiles/spaceProg.dir/ManualCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spaceProg.dir/ManualCommand.cpp.s"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\wrk\booop\spaceProg\ManualCommand.cpp -o CMakeFiles\spaceProg.dir\ManualCommand.cpp.s
 
+CMakeFiles/spaceProg.dir/UI.cpp.obj: CMakeFiles/spaceProg.dir/flags.make
+CMakeFiles/spaceProg.dir/UI.cpp.obj: ../UI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/spaceProg.dir/UI.cpp.obj"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\spaceProg.dir\UI.cpp.obj -c D:\wrk\booop\spaceProg\UI.cpp
+
+CMakeFiles/spaceProg.dir/UI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/spaceProg.dir/UI.cpp.i"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\wrk\booop\spaceProg\UI.cpp > CMakeFiles\spaceProg.dir\UI.cpp.i
+
+CMakeFiles/spaceProg.dir/UI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/spaceProg.dir/UI.cpp.s"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\wrk\booop\spaceProg\UI.cpp -o CMakeFiles\spaceProg.dir\UI.cpp.s
+
 # Object files for target spaceProg
 spaceProg_OBJECTS = \
 "CMakeFiles/spaceProg.dir/main.cpp.obj" \
@@ -234,12 +247,13 @@ spaceProg_OBJECTS = \
 "CMakeFiles/spaceProg.dir/Engine.cpp.obj" \
 "CMakeFiles/spaceProg.dir/Collector.cpp.obj" \
 "CMakeFiles/spaceProg.dir/Bomber.cpp.obj" \
-"CMakeFiles/spaceProg.dir/ICommand.cpp.obj" \
+"CMakeFiles/spaceProg.dir/IComm.cpp.obj" \
 "CMakeFiles/spaceProg.dir/Manual.cpp.obj" \
 "CMakeFiles/spaceProg.dir/AutoScan.cpp.obj" \
 "CMakeFiles/spaceProg.dir/AutoGrab.cpp.obj" \
 "CMakeFiles/spaceProg.dir/Parser.cpp.obj" \
-"CMakeFiles/spaceProg.dir/ManualCommand.cpp.obj"
+"CMakeFiles/spaceProg.dir/ManualCommand.cpp.obj" \
+"CMakeFiles/spaceProg.dir/UI.cpp.obj"
 
 # External object files for target spaceProg
 spaceProg_EXTERNAL_OBJECTS =
@@ -251,17 +265,18 @@ spaceProg.exe: CMakeFiles/spaceProg.dir/Map.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/Engine.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/Collector.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/Bomber.cpp.obj
-spaceProg.exe: CMakeFiles/spaceProg.dir/ICommand.cpp.obj
+spaceProg.exe: CMakeFiles/spaceProg.dir/IComm.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/Manual.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/AutoScan.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/AutoGrab.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/Parser.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/ManualCommand.cpp.obj
+spaceProg.exe: CMakeFiles/spaceProg.dir/UI.cpp.obj
 spaceProg.exe: CMakeFiles/spaceProg.dir/build.make
 spaceProg.exe: CMakeFiles/spaceProg.dir/linklibs.rsp
 spaceProg.exe: CMakeFiles/spaceProg.dir/objects1.rsp
 spaceProg.exe: CMakeFiles/spaceProg.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable spaceProg.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable spaceProg.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\spaceProg.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

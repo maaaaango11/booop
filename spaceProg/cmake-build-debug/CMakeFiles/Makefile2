@@ -73,12 +73,12 @@ preinstall:
 CMakeFiles/spaceProg.dir/all:
 	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/depend
 	$(MAKE) -f CMakeFiles\spaceProg.dir\build.make CMakeFiles/spaceProg.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target spaceProg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target spaceProg"
 .PHONY : CMakeFiles/spaceProg.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/spaceProg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles 15
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/spaceProg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\wrk\booop\spaceProg\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/spaceProg.dir/rule

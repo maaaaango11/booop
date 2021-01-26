@@ -16,7 +16,7 @@ void Parser::parse() {
         raw.erase(0, pos+del.length());
     }
     args->setCommand(tokens[0]);
-    args->setParam1(tokens[1]);
+    if(tokens.size()>1) args->setParam1(tokens[1]);
     if(tokens.size() == 3) args->setParam2(stoi(tokens[2])); //somneniya
     //std::cout<<args->getParam2()<<std::endl;
 }

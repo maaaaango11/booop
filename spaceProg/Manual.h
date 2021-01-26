@@ -4,16 +4,30 @@
 
 #include "IMode.h"
 #include "Parser.h"
-#include "ICommand.h"
+#include "IComm.h"
 #include <vector>
+#include "IRobot.h"
+#include "Map.h"
 
 class Manual : public IMode{
 private:
-   std::vector<std::pair<std::string, ICommand*>> commands;
+    Map* map;
+    IRobot* robot;
+    int spawnX;
+    int spawnY;
+   std::vector<std::pair<std::string, int(Manual::*)(IRobot&,Args*)>> commands;//int(Engine::*)(Args*)
     Parser parser;
+    bool doChangeMode;
+    std::string nextMode;
 public:
-    Manual(Parser& p);
+    Manual(Parser& p, Map &m, IRobot &r, bool &change, std::string &next);
     void nextMove();
+    void passXY(int x, int y);
+    int move(IRobot &r, Args* args);
+    int scan(IRobot &r, Args* args);
+    int grab(IRobot &r, Args* args);
+    int changeMode(IRobot &r, Args* args);
+    int bomberSwitch(IRobot &r, Args* args);
 };
 
 

@@ -35,3 +35,5 @@ void Collector::grab() {
 }
 int Collector::getX() {return x;}
 int Collector::getY() {return y;}
+Map* Collector::getMap() {return map;}
+void Collector::connect(IRobot &r){};

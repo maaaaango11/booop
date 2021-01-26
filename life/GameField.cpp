@@ -53,7 +53,7 @@ void GameField::changeStatus(std::vector<Cell*> cells){
 void GameField::nextStep() {
     //2 зарезервированных поля на одном(grid) всё меняем по данным сo второго(prevGrid)
     turn++;
-    std::vector<Cell*> cellsList;
+    //std::vector<Cell*> cellsList;
     for(int i = 0;i<len;i++){
         for(int j = 0;j<height;j++){
             int n = neighbourhood(i,j);
