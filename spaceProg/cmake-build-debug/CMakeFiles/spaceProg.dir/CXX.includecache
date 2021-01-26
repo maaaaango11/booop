@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/wrk/booop/spaceProg/AutoGrab.cpp
+AutoGrab.h
+D:/wrk/booop/spaceProg/AutoGrab.h
+
+D:/wrk/booop/spaceProg/AutoGrab.h
+IMode.h
+D:/wrk/booop/spaceProg/IMode.h
+
+D:/wrk/booop/spaceProg/AutoScan.cpp
+AutoScan.h
+D:/wrk/booop/spaceProg/AutoScan.h
+
+D:/wrk/booop/spaceProg/AutoScan.h
+IMode.h
+D:/wrk/booop/spaceProg/IMode.h
+
+D:/wrk/booop/spaceProg/IMode.h
+

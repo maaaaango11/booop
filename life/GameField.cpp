@@ -6,14 +6,14 @@
 std::ostream& operator<<(std::ostream &out, const GameField &gameField) {
     for(int i = 0; i<gameField.len; i++){
         for(int j = 0; j<gameField.height; j++){
-            out << (gameField.grid[i][j].getAlive() ? "1" : "0");
+            out << (gameField.grid->getGrid()[i][j].getAlive() ? "1" : "0");
         }
         out<<"\n";
     }
     return out;
 }
 
-GameField::GameField(int x1, int y1) : Field(x1, y1) {
+GameField::GameField(int x1, int y1) {
     int (GameField::*resetPrt)(Args*) = &GameField::reset;
     int (GameField::*setPrt)(Args*) = &GameField::set;
     int (GameField::*clearPrt)(Args*) = &GameField::clear;
@@ -28,19 +28,20 @@ GameField::GameField(int x1, int y1) : Field(x1, y1) {
     commands.emplace_back(std::make_pair("back",backPrt));
     commands.emplace_back(std::make_pair("save",savePrt));
     commands.emplace_back(std::make_pair("load",loadPrt));
-    prevGrid = nullptr;
+    grid = new Field(len, height);
+    prevGrid = grid;
 }
 
 int GameField::neighbourhood(int x, int y){
     int counter = 0;
-    if(grid[(x + 1) % len][y].getAlive()) counter++;
-    if(grid[x][(y + 1) % height].getAlive()) counter++;
-    if(grid[(x + 1) % len][(y + 1) % height].getAlive()) counter++;
-    if(grid[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][y].getAlive()) counter++;
-    if(grid[x][((y - 1) % height)<0 ? height+((y - 1) % height) : ((y - 1) % height)].getAlive()) counter++;
-    if(grid[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][(y - 1) % height].getAlive()) counter++;
-    if(grid[(x + 1) % len][((y - 1) % height)<0 ? height+((y - 1) % height) : ((y - 1) % height)].getAlive()) counter++;
-    if(grid[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][(y + 1) % height].getAlive()) counter++;
+    if(grid->getGrid()[(x + 1) % len][y].getAlive()) counter++;
+    if(grid->getGrid()[x][(y + 1) % height].getAlive()) counter++;
+    if(grid->getGrid()[(x + 1) % len][(y + 1) % height].getAlive()) counter++;
+    if(grid->getGrid()[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][y].getAlive()) counter++;
+    if(grid->getGrid()[x][((y - 1) % height)<0 ? height+((y - 1) % height) : ((y - 1) % height)].getAlive()) counter++;
+    if(grid->getGrid()[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][(y - 1) % height].getAlive()) counter++;
+    if(grid->getGrid()[(x + 1) % len][((y - 1) % height)<0 ? height+((y - 1) % height) : ((y - 1) % height)].getAlive()) counter++;
+    if(grid->getGrid()[((x - 1) % len)<0 ? len+((x - 1) % len) : (x - 1) % len][(y + 1) % height].getAlive()) counter++;
     return counter;
 }
 
@@ -50,17 +51,20 @@ void GameField::changeStatus(std::vector<Cell*> cells){
 }
 
 void GameField::nextStep() {
-    prevGrid = grid; //чую беду
+    //2 зарезервированных поля на одном(grid) всё меняем по данным сo второго(prevGrid)
     turn++;
     std::vector<Cell*> cellsList;
     for(int i = 0;i<len;i++){
         for(int j = 0;j<height;j++){
             int n = neighbourhood(i,j);
-            if(((n<2)||(n>3))&&(grid[i][j].getAlive())){cellsList.push_back(&grid[i][j]);} //из-за передачи ссылок
-            if((n == 3)&&(!grid[i][j].getAlive())){cellsList.push_back(&grid[i][j]);} //
+            //if(((n<2)||(n>3))&&(grid[i][j].getAlive())){cellsList.push_back(&grid[i][j]);} //не добавлять в список а сразу менять
+            //if((n == 3)&&(!grid[i][j].getAlive())){cellsList.push_back(&grid[i][j]);}
+            if(((n<2)||(n>3))&&(grid->getGrid()[i][j].getAlive())){prevGrid->getGrid()[i][j].setAlive(!prevGrid->getGrid()[i][j].getAlive());}
+            if((n == 3)&&(!grid->getGrid()[i][j].getAlive())){prevGrid->getGrid()[i][j].setAlive(!prevGrid->getGrid()[i][j].getAlive());}
         }
     }
-    changeStatus(cellsList);
+    back(nullptr);
+    //changeStatus(cellsList);
     std::cout<<this<<std::endl; //
     waitCommand();
 }
@@ -84,15 +88,15 @@ int GameField::reset(Args* args){ //return?
     prevGrid = nullptr;
     delete[](grid);
     grid = nullptr;
-    generate();
+    //generate();
 }
 
 int GameField::set(Args* args){ //return?
-    grid[args->numbers[0]][args->numbers[1]].setAlive(true);
+    grid->getGrid()[args->numbers[0]][args->numbers[1]].setAlive(true);
 }
 
 int GameField::clear(Args* args){
-    grid[args->numbers[0]][args->numbers[1]].setAlive(false);
+    grid->getGrid()[args->numbers[0]][args->numbers[1]].setAlive(false);
 }
 
 int GameField::step(Args* args){ //return?
@@ -102,10 +106,10 @@ int GameField::step(Args* args){ //return?
 }
 
 int GameField::back(Args* args){ //return?
-    int ti = turn;
-    turn = prevTurn;
-    prevTurn = ti;
-    Cell** tg = grid;
+    //int ti = turn;
+    //turn = prevTurn;
+    //prevTurn = ti;
+    Field* tg = grid;
     grid = prevGrid;
     prevGrid = tg;
 }

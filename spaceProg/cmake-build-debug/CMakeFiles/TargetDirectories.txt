@@ -1,0 +1,3 @@
+D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/spaceProg.dir
+D:/wrk/booop/spaceProg/cmake-build-debug/CMakeFiles/edit_cache.dir

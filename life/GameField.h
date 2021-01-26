@@ -10,12 +10,15 @@
 #ifndef LIFE_GAMEFIELD_H
 #define LIFE_GAMEFIELD_H
 
-class GameField : public Field{
+class GameField{
 private:
     int turn = 0;
     int prevTurn = 0;
     std::vector<std::pair<std::string, int(GameField::*)(Args*) >> commands;
-    Cell** prevGrid;
+    Field* prevGrid;
+    Field* grid;
+    int len = 10;
+    int height = 10;
     Commando* parser;
 public:
     void setParser(Commando* p){
