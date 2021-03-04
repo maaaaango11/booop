@@ -19,14 +19,16 @@ Engine::Engine(IRobot &r, IRobot &b){ //array!
 }
 
 void Engine::spawn(IRobot *r) {
+    srand(time(0));
     spawnX = rand() % map->getLen();
     spawnY = rand() % map->getHeight();
     current->passXY(spawnX, spawnY);
+    //r->setCoords()
 }
 
 void Engine::run() {
     while(true){
-        ui->draw(*map);
+        ui->draw(*map, spawnX + robot->getX(), spawnY+ robot->getY());
         current->nextMove();
         if(change) break; //add new ifs to change mode and spawn bomber
     }

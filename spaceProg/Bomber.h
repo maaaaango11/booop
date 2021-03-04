@@ -14,6 +14,7 @@ class Bomber: public IRobot{
     int spawnH;
     void move(int a, int b);
     void scan(char tile);
+    void setCoords(int a, int b);
     void grab();
     int getX();
     int getY();

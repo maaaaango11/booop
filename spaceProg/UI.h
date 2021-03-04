@@ -7,7 +7,7 @@
 
 class UI {
 public:
-    void draw(Map& map);
+    void draw(Map& map, int x, int y);
 };
 
 

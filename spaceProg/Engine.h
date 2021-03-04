@@ -11,6 +11,7 @@
 #include "Parser.h"
 #include <vector>
 #include <iostream>
+#include <time.h>
 
 class Engine {
 Map* map;

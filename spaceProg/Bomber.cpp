@@ -19,3 +19,7 @@ void Bomber::connect(IRobot &r){
     sendTo = &r;
     map = r.getMap();
 };
+void Bomber::setCoords(int a, int b) {
+    x = a;
+    y = b;
+}

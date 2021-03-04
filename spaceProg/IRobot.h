@@ -11,6 +11,7 @@ class IRobot {
 public:
     virtual void move(int a, int b) = 0;
     virtual void scan(char tile) = 0;
+    virtual void setCoords(int a, int b) = 0;
     virtual void grab() = 0;
     virtual int getX() = 0;
     virtual int getY() = 0;
