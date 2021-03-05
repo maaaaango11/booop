@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
 public class IOmanager {
-    //private InputStreamReader reader;
     private final Dictionary dictionary;
 
     IOmanager(Dictionary dict, File charset){
@@ -13,21 +12,28 @@ public class IOmanager {
                 temp = scanner.nextLine();
                 dictionary.putEntry(new Literal(temp.split("\\s")[0]), temp.split("\\s")[1]);//
             }
-            //reader = new InputStreamReader(new FileInputStream("charset"));
-            //reader.readLine();
+
         } catch (IOException e){
             e.printStackTrace();
         }
     }
-    public void decode(File inFile, File outFile){
+    private void decode(File inFile, File outFile, String command){
         String temp;
         StringBuilder text = new StringBuilder();
         try{
             Scanner scanner = new Scanner(inFile);
             BufferedWriter writer = new BufferedWriter(new FileWriter(outFile));
-            while(scanner.hasNext()){
-                temp = scanner.next();
-                text.append(dictionary.lookFor(new Literal(temp)));
+            if(command.equals("decode")){
+                while(scanner.hasNext()){
+                    temp = scanner.next();
+                    text.append(dictionary.lookFor(new Literal(temp)));
+                }
+            }
+            if(command.equals("code")){
+                while(scanner.hasNext()){
+                    temp = scanner.next();
+                    text.append(dictionary.lookFor(temp).getS());
+                }
             }
             writer.write(text.toString());
 
@@ -35,7 +41,17 @@ public class IOmanager {
             e.printStackTrace();
         }
     }
-    public void encode(File inFile, File outFile){
-
+    public void consoleRead(){
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try{
+            String line = reader.readLine();
+            if(line.split("\\s")[0].equals("code") || line.split("\\s")[0].equals("decode")){
+                if(!line.split("\\s")[1].equals("")){
+                    decode(new File(line.split("\\s")[1]), new File("out.txt"), line.split("\\s")[0]);
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
