@@ -1,21 +1,14 @@
 import java.io.*;
 import java.util.Scanner;
+
 public class IOmanager {
     private final Dictionary dictionary;
+    private final StatTable statTable;
 
-    IOmanager(Dictionary dict, File charset){
-        String temp;
+    IOmanager(Dictionary dict, StatTable table){
         dictionary = dict;
-        try{
-            Scanner scanner = new Scanner(charset);
-            while(scanner.hasNextLine()){
-                temp = scanner.nextLine();
-                dictionary.putEntry(new Literal(temp.split("\\s")[0]), temp.split("\\s")[1]);//
-            }
-
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        statTable = table;
+        
     }
     private void decode(File inFile, File outFile, String command){
         String temp;
@@ -26,13 +19,20 @@ public class IOmanager {
             if(command.equals("decode")){
                 while(scanner.hasNext()){
                     temp = scanner.next();
-                    text.append(dictionary.lookFor(new Literal(temp)));
+                    text.append(dictionary.lookForDecode(temp));
+                    statTable.addElem(new StatElem(dictionary.lookForDecode(temp)));
+                    //restructure this
                 }
             }
             if(command.equals("code")){
                 while(scanner.hasNext()){
                     temp = scanner.next();
-                    text.append(dictionary.lookFor(temp).getS());
+                    for(int i = 0; i<temp.length(); i++){
+                        char idx = temp.charAt(i);
+                        text.append(dictionary.lookForCode(String.valueOf(idx)));
+                        statTable.addElem(new StatElem(String.valueOf(idx)));
+                    }
+                    //restructure this
                 }
             }
             writer.write(text.toString());
@@ -41,6 +41,22 @@ public class IOmanager {
             e.printStackTrace();
         }
     }
+    public void statPrint(){
+        StringBuilder text = new StringBuilder();
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("stat")); //auto generate this
+            for(StatElem elem: statTable.getStatTable()){
+                text.append(elem.getL());
+                text.append("\\s");
+                text.append(elem.getCount());
+                text.append("\n");
+            }
+            writer.write(text.toString());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public void consoleRead(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try{
@@ -48,6 +64,7 @@ public class IOmanager {
             if(line.split("\\s")[0].equals("code") || line.split("\\s")[0].equals("decode")){
                 if(!line.split("\\s")[1].equals("")){
                     decode(new File(line.split("\\s")[1]), new File("out.txt"), line.split("\\s")[0]);
+                    statPrint();
                 }
             }
         } catch (IOException e){
@@ -55,3 +72,5 @@ public class IOmanager {
         }
     }
 }
+//pattern
+//how to clear and when?

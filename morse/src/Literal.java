@@ -7,5 +7,4 @@ public class Literal {
     public String getS(){
         return s;
     }
-
 }

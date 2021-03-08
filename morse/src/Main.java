@@ -1,7 +1,11 @@
 import java.io.File;
-public class Main {
+public final class Main {
     Main(){
     Dictionary dictionary = new Dictionary();
-    IOmanager manager = new IOmanager(dictionary, new File("charset"));
+    Loader loader = new Loader();
+    loader.load(dictionary, new File("charset"));
+    StatTable statTable = new StatTable();
+    IOmanager manager = new IOmanager(dictionary, statTable);
+    manager.consoleRead();
     }
 }
