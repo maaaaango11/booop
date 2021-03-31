@@ -4,7 +4,6 @@
 
 using namespace std;
 #define N (1024) // размерность матрицы
-#define M (3) // количество членов ряда (итераций)
 
 void matrixSum (float* first, float* second, float* result) {
     for (int i = 0; i < N; ++i)
@@ -18,7 +17,7 @@ void matrixSub (float* first, float* second, float* result) {
             result[i * N + j] = first[i * N + j] - second[i * N + j];
 }
 
-void matrixMult(float* first, float* second, float* result) {
+void matrixMult(float* first, float* second, float* result) { //????
     float sum = 0;
     for (int i = 0; i < N; ++i)
         for (int k = 0; k < N; ++k)
@@ -26,29 +25,7 @@ void matrixMult(float* first, float* second, float* result) {
                 sum += first[i * N + k] * second[k * N + j];
 }
 
-float A_1(float* A) {
-    float max = 0, tmp = 0;
-    for (int i = 0; i < N; ++i) {
-        tmp = 0;
-        for (int j = 0; j < N; ++j)
-            tmp += abs(A[i * N + j]);
-        if (tmp > max) max = tmp;
-    }
-    return max;
-}
-
-float A_inf(float* A) {
-    float max = 0, tmp = 0;
-    for (int i = 0; i < N; ++i) {
-        tmp = 0;
-        for (int j = 0; j < N; ++j)
-            tmp += abs(A[j * N + i]);
-        if (tmp > max) max = tmp;
-    }
-    return max;
-}
-
-void IMatrixFill(float* I) {
+void matrixFill(float* I) {
     for (size_t i = 0; i < N; ++i)
         for (size_t j = 0; j < N; ++j)
             I[i * N + j] = (i == j);
@@ -59,49 +36,35 @@ void matrixEmpty(float* A){
             A[i * N + j] = 0;
 }
 
-float* invertMatrix(float* A) {
-    auto* B = (float*)calloc(N * N, sizeof(float)); // A^т / a_1 * a_inf
-    auto* I = (float*)calloc(N * N, sizeof(float)); // единичная матрица
-    auto* BA = (float*)calloc(N * N, sizeof(float)); // B * A
-    auto* R = (float*)calloc(N * N, sizeof(float)); // I - BA
-    auto* res = (float*)calloc(N * N, sizeof(float)); // result
-    auto* buf = (float*)calloc(N * N, sizeof(float)); // buffer
-    float a_1 = A_1(A);
-    float a_inf = A_inf(A);
-    IMatrixFill(I);
-    IMatrixFill(buf);
-    for (int i = 0; i < N; ++i)
-        for (int j = 0; j < N; ++j)
-            B[i * N + j] = A[j * N + i] / (a_inf * a_1);
+float* iterativeMethod(float* matrix, float* x1, float* b){
+    float epsilon;
+    int n;
+    auto* y = (float*)calloc(N, sizeof(float));
+    auto* x2 = (float*)calloc(N, sizeof(float));
+    auto* sumUV = (float*)calloc(N, sizeof(float)); //keep prev
+    auto* tau = (float*)calloc(N, sizeof(float));
+    auto* temp = (float*)calloc(N, sizeof(float));
+    while(...<epsilon){
+        matrixMult(matrix, x1, temp); //A*x
+        matrixSub(temp, b, y); // y = Ax - b
+        for(int i = 0; i<n-1; i++){
+            matrixSum()
+        }
+        x2 = 
 
-    matrixEmpty(BA);
-    matrixMult(A, B, BA);
-    matrixSub(I, BA, R);
-    for (int k = 0; k < M - 1; ++k) {
-        matrixMult(I, R, BA);
-        for (int i = 0; i < N; ++i)
-            for (int j = 0; j < N; ++j)
-                I[i * N + j] = BA[i * N + j];
-
-        matrixSum(buf, I, buf);
     }
-    matrixMult(buf, B, res);
-    free(B);
-    free(BA);
-    free(I);
-    free(R);
-    free(buf);
-    return res;
 }
 
 int main()
 {
     auto* A = (float*)calloc(N * N, sizeof(float)); // original matrix
     float* Inv;
-    for (size_t i = 0; i < N; ++i)
-        for (size_t j = 0; j < N; ++j)
-            A[i * N + j] = (i == j);
-    Inv = invertMatrix(A);
+    auto* x = (float*)calloc(N, sizeof(float));
+    auto* b = (float*)calloc(N, sizeof(float));
+    matrixFill(A);
+    matrixEmpty(x);
+    iteratveMethod();
+
 /*
 for (size_t i = 0; i < N; ++i) {
     for (size_t j = 0; j < N; ++j)
@@ -110,6 +73,7 @@ for (size_t i = 0; i < N; ++i) {
 }
 */
     free(A);
-    free(Inv);
+    free(x);
+    free(b);
     return 0;
 }
